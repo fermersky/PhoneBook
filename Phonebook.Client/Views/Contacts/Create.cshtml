@@ -1,6 +1,6 @@
 ﻿@{
     Layout = "_Layout";
-    ViewBag.Title = "Edit contact";
+    ViewBag.Title = "Create contact";
 }
 
 
@@ -9,9 +9,7 @@
         <div style="display: none" class="alert alert-danger" id="error-alert" role="alert">Not valid values! Check your inputs!</div>
     </div>
     <div class="row">
-        <form style="width: 500px;" name="updateContactForm">
-            <input id="contactId" type="hidden" name="contactId" value="@Model" />
-
+        <form style="width: 500px" name="createContactForm">
             <div class="form-group">
                 <label for="inputName">Name</label>
                 <input type="text" class="form-control" name="inputName" aria-describedby="emailHelp" placeholder="Enter name">
@@ -21,7 +19,7 @@
                 <input type="text" class="form-control" id="inputPhone" placeholder="Enter phonenumber (7+ digits)">
                 <small id="emailHelp" class="form-text text-muted">Digits only</small>
             </div>
-            <button name="submitBtn" type="submit" class="btn btn-primary">Save</button>
+            <button name="submitBtn" type="submit" class="btn btn-primary">Add</button>
         </form>
     </div>
 </div>
@@ -30,36 +28,19 @@
 
 @section Scripts {
     <script>
-        // get id of current updating contact 
-        const contactForm = document.forms["updateContactForm"];
-        const contactId = contactForm.contactId;
+        // get id of current updating contact
+        const contactForm = document.forms["createContactForm"];
 
         // base url
         const url = "http://localhost:5002/api/contacts/";
 
-        // get contact with id from url param 
-        $.ajax({
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-
-            type: 'GET',
-            url: url + contactId.value,
-            dataType: 'json',
-
-            success: function (data) {
-                // fill inputs with contact values
-                fillInputs(JSON.stringify(data));
-            }
-        });
-
+        
         contactForm.submitBtn.addEventListener('click', submitFormCallback);
 
         function submitFormCallback() {
             event.preventDefault();
-
             if (isFormValid(contactForm)) {
+
                 // form new contact according to inputs in page
                 const contactBody = {
                     "name": contactForm.inputName.value,
@@ -74,8 +55,8 @@
                         'Content-Type': 'application/json'
                     },
 
-                    type: 'PUT',
-                    url: url + contactId.value,
+                    type: 'POST',
+                    url: url,
                     data: JSON.stringify(contactBody),
                     dataType: 'json',
 

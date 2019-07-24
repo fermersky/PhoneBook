@@ -2,3 +2,82 @@
     Layout = "_Layout";
     ViewBag.Title = "Delete contact";
 }
+
+<div class="container">
+    <div class="row">
+        <div>
+            <p>Are you sure you wanna delete this contact?</p>
+            <p>
+                <span>Name:</span>
+                <span id="nameLabel"></span>
+            </p>
+            <p>
+                <span>Phone:</span>
+                <span id="phoneLabel"></span>
+            </p>
+
+            <a id="deleteLink" href="/contacts/delete/${contact.id}">
+                <button type="button" class="btn btn-danger">Delete</button>
+            </a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // get id of current deleting contact
+        const contactId = @Model;
+
+        // base url
+        const url = "http://localhost:5002/api/contacts/";
+
+        // get contact with id from url param
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+
+            type: 'GET',
+            url: url + contactId,
+            dataType: 'json',
+
+            success: function (data) {
+                // fill inputs with contact values
+                fillInputs(JSON.stringify(data));
+            }
+        });
+
+        $("#deleteLink").on('click', deleteContact);
+
+        function deleteContact() {
+            event.preventDefault();
+
+            // send put request to the api
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+
+                type: 'DELETE',
+                url: url + contactId,
+                dataType: 'json',
+
+                error: function (data) {
+                    if (data.status === 200) {
+                        window.location.href = '/contacts/list';
+                    }
+                },
+            });
+        }
+
+        function fillInputs(response) {
+            const contactData = JSON.parse(response);
+
+
+            $("#nameLabel").text(contactData.name);
+            $("#phoneLabel").text(contactData.phone);
+        }
+    </script>
+}

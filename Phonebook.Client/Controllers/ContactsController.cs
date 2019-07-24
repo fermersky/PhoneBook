@@ -22,5 +22,10 @@ namespace Phonebook.Client.Controllers
         {
             return View(id);
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
