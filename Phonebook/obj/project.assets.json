@@ -12971,11 +12971,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Данил\\Desktop\\Phonebook\\Phonebook\\Phonebook.Server.csproj",
+      "projectUniqueName": "C:\\Users\\Данил\\desktop\\Phonebook\\Phonebook\\Phonebook.Server.csproj",
       "projectName": "Phonebook.Server",
-      "projectPath": "C:\\Users\\Данил\\Desktop\\Phonebook\\Phonebook\\Phonebook.Server.csproj",
+      "projectPath": "C:\\Users\\Данил\\desktop\\Phonebook\\Phonebook\\Phonebook.Server.csproj",
       "packagesPath": "C:\\Users\\Данил\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Данил\\Desktop\\Phonebook\\Phonebook\\obj\\",
+      "outputPath": "C:\\Users\\Данил\\desktop\\Phonebook\\Phonebook\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -12994,8 +12994,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "C:\\Users\\Данил\\Desktop\\Phonebook\\DataEntities\\DataEntities.csproj": {
-              "projectPath": "C:\\Users\\Данил\\Desktop\\Phonebook\\DataEntities\\DataEntities.csproj"
+            "C:\\Users\\Данил\\desktop\\Phonebook\\DataEntities\\DataEntities.csproj": {
+              "projectPath": "C:\\Users\\Данил\\desktop\\Phonebook\\DataEntities\\DataEntities.csproj"
             }
           }
         }

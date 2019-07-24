@@ -13,6 +13,7 @@ namespace Phonebook.Server.Controllers
     [ApiController]
     public class ContactsController : ControllerBase
     {
+        // GET api/contacts
         [HttpGet]
         public ActionResult<List<Contacts>> Get()
         {
@@ -22,6 +23,7 @@ namespace Phonebook.Server.Controllers
             }
         }
 
+        // GET api/contacts/2
         [HttpGet("{id}")]
         public ActionResult Get(int id)
         {
@@ -35,8 +37,9 @@ namespace Phonebook.Server.Controllers
             }
         }
 
+        // POST api/contacts
         [HttpPost]
-        public ActionResult Post([FromQuery] Contacts contact)
+        public ActionResult Post([FromBody] Contacts contact)
         {
             using (var db = new PhonebookDBContext())
             {
@@ -47,8 +50,9 @@ namespace Phonebook.Server.Controllers
             }
         }
 
+        // PUT api/contacts/2
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromQuery] Contacts contact)
+        public ActionResult Put(int id, [FromBody] Contacts contact)
         {
             using (var db = new PhonebookDBContext())
             {
@@ -68,6 +72,7 @@ namespace Phonebook.Server.Controllers
             }
         }
 
+        // DELETE api/contacts/2
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {

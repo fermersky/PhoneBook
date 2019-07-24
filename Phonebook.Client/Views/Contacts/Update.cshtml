@@ -1,0 +1,92 @@
+﻿@{
+    Layout = "_Layout";
+    ViewBag.Title = "Edit contact";
+}
+
+
+<div class="container">
+    <div class="row">
+        <form name="updateContactForm">
+            <input id="contactId" type="hidden" name="contactId" value="@Model" />
+
+            <div class="form-group">
+                <label for="inputName">Name</label>
+                <input type="text" class="form-control" name="inputName" aria-describedby="emailHelp" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+                <label for="inputPhone">Phone</label>
+                <input type="text" class="form-control" id="inputPhone" placeholder="Enter phonenumber">
+                <small id="emailHelp" class="form-text text-muted">Digits only</small>
+            </div>
+            <button name="submitBtn" type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script>
+        // get id of current updating contact 
+        const contactForm = document.forms["updateContactForm"];
+        const contactId = contactForm.contactId;
+
+        // base url
+        const url = "http://localhost:5002/api/contacts/";
+
+        // get contact with id from url param 
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+
+            type: 'GET',
+            url: url + contactId.value,
+            dataType: 'json',
+
+            success: function (data) {
+                // fill inputs with contact values
+                fillInputs(JSON.stringify(data));
+            }
+        });
+
+        contactForm.submitBtn.addEventListener('click', submitFormCallback);
+
+        function submitFormCallback() {
+            event.preventDefault();
+
+            // form new contact according to inputs in page
+            const contactBody = {
+                "name": contactForm.inputName.value,
+                "phone": contactForm.inputPhone.value,
+                "userId": "1",
+            }
+
+            // send put request to the api
+            $.ajax({
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+
+                type: 'PUT',
+                url: url + contactId.value,
+                data: JSON.stringify(contactBody),
+                dataType: 'json',
+
+                success: function () {
+                    // come back to main page
+                    window.location.href = '/contacts/list'
+                }
+            });
+        }
+
+        function fillInputs(response) {
+            const contactData = JSON.parse(response);
+
+            contactForm.inputName.value = contactData.name;
+            contactForm.inputPhone.value = contactData.phone;
+        }
+    </script>
+}
