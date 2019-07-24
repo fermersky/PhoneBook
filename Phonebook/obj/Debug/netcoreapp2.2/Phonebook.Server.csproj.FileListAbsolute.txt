@@ -1,0 +1,17 @@
+C:\Users\Данил\desktop\Phonebook\Phonebook\bin\Debug\netcoreapp2.2\Phonebook.Server.deps.json
+C:\Users\Данил\desktop\Phonebook\Phonebook\bin\Debug\netcoreapp2.2\Phonebook.Server.runtimeconfig.json
+C:\Users\Данил\desktop\Phonebook\Phonebook\bin\Debug\netcoreapp2.2\Phonebook.Server.runtimeconfig.dev.json
+C:\Users\Данил\desktop\Phonebook\Phonebook\bin\Debug\netcoreapp2.2\Phonebook.Server.dll
+C:\Users\Данил\desktop\Phonebook\Phonebook\bin\Debug\netcoreapp2.2\Phonebook.Server.pdb
+C:\Users\Данил\desktop\Phonebook\Phonebook\obj\Debug\netcoreapp2.2\Phonebook.Server.csprojAssemblyReference.cache
+C:\Users\Данил\desktop\Phonebook\Phonebook\obj\Debug\netcoreapp2.2\Phonebook.Server.csproj.CoreCompileInputs.cache
+C:\Users\Данил\desktop\Phonebook\Phonebook\obj\Debug\netcoreapp2.2\Phonebook.Server.RazorAssemblyInfo.cache
+C:\Users\Данил\desktop\Phonebook\Phonebook\obj\Debug\netcoreapp2.2\Phonebook.Server.RazorAssemblyInfo.cs
+C:\Users\Данил\desktop\Phonebook\Phonebook\obj\Debug\netcoreapp2.2\Phonebook.Server.AssemblyInfoInputs.cache
+C:\Users\Данил\desktop\Phonebook\Phonebook\obj\Debug\netcoreapp2.2\Phonebook.Server.AssemblyInfo.cs
+C:\Users\Данил\desktop\Phonebook\Phonebook\obj\Debug\netcoreapp2.2\Phonebook.Server.RazorTargetAssemblyInfo.cache
+C:\Users\Данил\desktop\Phonebook\Phonebook\obj\Debug\netcoreapp2.2\Phonebook.Server.dll
+C:\Users\Данил\desktop\Phonebook\Phonebook\obj\Debug\netcoreapp2.2\Phonebook.Server.pdb
+C:\Users\Данил\desktop\Phonebook\Phonebook\bin\Debug\netcoreapp2.2\DataEntities.dll
+C:\Users\Данил\desktop\Phonebook\Phonebook\bin\Debug\netcoreapp2.2\DataEntities.pdb
+C:\Users\Данил\desktop\Phonebook\Phonebook\obj\Debug\netcoreapp2.2\Phonebook.Server.csproj.CopyComplete

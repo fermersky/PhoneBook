@@ -1,0 +1,11 @@
+C:\Users\Данил\desktop\Phonebook\DataEntities\bin\Debug\netcoreapp2.2\DataEntities.deps.json
+C:\Users\Данил\desktop\Phonebook\DataEntities\bin\Debug\netcoreapp2.2\DataEntities.dll
+C:\Users\Данил\desktop\Phonebook\DataEntities\bin\Debug\netcoreapp2.2\DataEntities.pdb
+C:\Users\Данил\desktop\Phonebook\DataEntities\obj\Debug\netcoreapp2.2\DataEntities.csprojAssemblyReference.cache
+C:\Users\Данил\desktop\Phonebook\DataEntities\obj\Debug\netcoreapp2.2\DataEntities.csproj.CoreCompileInputs.cache
+C:\Users\Данил\desktop\Phonebook\DataEntities\obj\Debug\netcoreapp2.2\DataEntities.AssemblyInfoInputs.cache
+C:\Users\Данил\desktop\Phonebook\DataEntities\obj\Debug\netcoreapp2.2\DataEntities.AssemblyInfo.cs
+C:\Users\Данил\desktop\Phonebook\DataEntities\obj\Debug\netcoreapp2.2\DataEntities.dll
+C:\Users\Данил\desktop\Phonebook\DataEntities\obj\Debug\netcoreapp2.2\DataEntities.pdb
+C:\Users\Данил\desktop\Phonebook\DataEntities\bin\Debug\netcoreapp2.2\DataEntities.runtimeconfig.json
+C:\Users\Данил\desktop\Phonebook\DataEntities\bin\Debug\netcoreapp2.2\DataEntities.runtimeconfig.dev.json
