@@ -62,13 +62,14 @@
 
                 type: 'DELETE',
                 url: url + contactId,
-                dataType: 'json',
 
-                error: function (data) {
-                    if (data.status === 200) {
-                        window.location.href = '/contacts/list';
-                    }
+                success: function () {
+                    window.location.href = "/contacts/list"
                 },
+
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(jqXHR, textStatus, errorThrown);
+                }
             });
         }
 
