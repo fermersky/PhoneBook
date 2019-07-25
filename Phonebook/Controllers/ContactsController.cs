@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Phonebook.Server.Controllers
 {
-    [Route("api/{constroller}")]
+    [Route("api/{controller}")]
     [ApiController]
     public class ContactsController : ControllerBase
     {
