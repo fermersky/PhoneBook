@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Login";
+    Layout = "_Layout";
+}
+
+<style>
+    .loginForm {
+        margin-top: 40px;
+    }
+
+    label {
+        margin-right: 20px;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div style="display: none" class="alert alert-danger" id="error-alert" role="alert">Errors with authorization. Try to use login "daniel" and password "daniel"</div>
+    </div>
+    <div class="row">
+        <form class="loginForm">
+            <div class="form-group">
+                <label for="userLogin">Login name</label>
+                <input type="text" id="userLogin" placeholder="Login" name="userLogin" />
+                <small id="emailHelp" class="form-text text-muted">(daniel | alina)</small>
+            </div>
+            <div class="form-group">
+                <label for="userPassword">Password</label>
+                <input type="password" id="userPassword" placeholder="Password" name="userPassword" />
+                <small id="passHelp" class="form-text text-muted">(daniel | alina)</small>
+            </div>
+            <button type="submit" id="submitBtn" class="btn btn-primary">Log in</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+<script>
+    $("#submitBtn").on("click", function () {
+        event.preventDefault();
+
+        // base api url
+        const url = "http://localhost:5002/api/users";
+
+        // body of http post request to the api
+        const userBody = {
+            "lgn": $("#userLogin").val(),
+            "pwd": $("#userPassword").val(),
+        }
+        
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+
+            type: 'POST',
+            url: url,
+            data: JSON.stringify(userBody),
+
+            success: function (data) {
+                sessionStorage.setItem("userId", data);
+
+                // redirect to main page
+                window.location.href = "/contacts/list";
+            },
+
+            error: function (error) {
+                console.error(error.statusText);
+                $("#error-alert").fadeIn(100);
+            }
+        });
+    });
+</script>
+}

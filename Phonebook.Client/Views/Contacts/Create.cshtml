@@ -39,16 +39,18 @@
 
         function submitFormCallback() {
             event.preventDefault();
+
+            // check is form has valid values
             if (isFormValid(contactForm)) {
 
                 // form new contact according to inputs in page
                 const contactBody = {
                     "name": contactForm.inputName.value,
                     "phone": contactForm.inputPhone.value,
-                    "userId": "1",
+                    "userId": sessionStorage.getItem("userId"),
                 }
 
-                // send put request to the api
+                // send post request to the api
                 $.ajax({
                     headers: {
                         'Accept': 'application/json',

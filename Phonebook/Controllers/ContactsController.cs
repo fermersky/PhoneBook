@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using Phonebook.Server.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 
 namespace Phonebook.Server.Controllers
@@ -13,26 +15,26 @@ namespace Phonebook.Server.Controllers
     [ApiController]
     public class ContactsController : ControllerBase
     {
-        // GET api/contacts
+        // GET api/contacts?userId=2
         [HttpGet]
-        public ActionResult<List<Contacts>> Get()
+        public ActionResult<List<Contacts>> GetContacts([FromQuery] int userId)
         {
             using (var db = new PhonebookDBContext())
             {
-                return db.Contacts.ToList();
+                return db.Contacts.Where(c => c.UserId == userId).ToList();
             }
         }
 
         // GET api/contacts/2
         [HttpGet("{id}")]
-        public ActionResult Get(int id)
+        public ActionResult<Contacts> GetContactById(int id)
         {
             using (var db = new PhonebookDBContext())
             {
                 var con = db.Contacts.FirstOrDefault(c => c.Id == id);
 
                 if (con != null)
-                    return new ObjectResult(con);
+                    return con;
                 return NotFound("Not found contact with a same Id");
             }
         }
@@ -46,7 +48,7 @@ namespace Phonebook.Server.Controllers
                 db.Contacts.Add(contact);
                 db.SaveChanges();
 
-                return new ObjectResult(contact);
+                return Created("api/contacts", contact);
             }
         }
 

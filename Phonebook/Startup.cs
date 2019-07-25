@@ -27,10 +27,11 @@ namespace Phonebook
         public void ConfigureServices(IServiceCollection services)
         {
             var corsBuilder = new CorsPolicyBuilder();
+
             corsBuilder.AllowAnyHeader();
             corsBuilder.AllowAnyMethod();
-            corsBuilder.AllowAnyOrigin(); // For anyone access.
-            //corsBuilder.WithOrigins("http://localhost:56573"); // for a specific url. Don't add a forward slash on the end!
+            corsBuilder.AllowAnyOrigin(); 
+
             corsBuilder.AllowCredentials();
 
             services.AddCors(options =>
@@ -42,6 +43,7 @@ namespace Phonebook
                 .AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling =
                     Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
+            
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
@@ -55,7 +57,6 @@ namespace Phonebook
             }
             else
             {
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 

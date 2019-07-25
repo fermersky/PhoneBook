@@ -10,8 +10,6 @@
     </div>
     <div class="row">
         <form style="width: 500px;" name="updateContactForm">
-            <input id="contactId" type="hidden" name="contactId" value="@Model" />
-
             <div class="form-group">
                 <label for="inputName">Name</label>
                 <input type="text" class="form-control" name="inputName" aria-describedby="emailHelp" placeholder="Enter name">
@@ -32,7 +30,7 @@
     <script>
         // get id of current updating contact 
         const contactForm = document.forms["updateContactForm"];
-        const contactId = contactForm.contactId;
+        const contactId = @Model;
 
         // base url
         const url = "http://localhost:5002/api/contacts/";
@@ -45,7 +43,7 @@
             },
 
             type: 'GET',
-            url: url + contactId.value,
+            url: url + contactId,
             dataType: 'json',
 
             success: function (data) {
@@ -64,7 +62,7 @@
                 const contactBody = {
                     "name": contactForm.inputName.value,
                     "phone": contactForm.inputPhone.value,
-                    "userId": "1",
+                    "userId": sessionStorage.getItem("userId"),
                 }
 
                 // send put request to the api
@@ -75,7 +73,7 @@
                     },
 
                     type: 'PUT',
-                    url: url + contactId.value,
+                    url: url + contactId,
                     data: JSON.stringify(contactBody),
                     dataType: 'json',
 

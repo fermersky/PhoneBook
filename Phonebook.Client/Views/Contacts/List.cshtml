@@ -44,10 +44,10 @@
                 'Content-Type': 'application/json'
             },
             type: 'GET',
-            url: "http://localhost:5002/api/contacts/",
+            url: `http://localhost:5002/api/contacts?userId=${sessionStorage.getItem("userId")}`,
 
             success: function (response) {
-                displayContacts(JSON.stringify(response));
+                displayContacts(response);
             },
 
             error: function (error) {
@@ -56,24 +56,25 @@
         });
 
         function displayContacts(response) {
-            const data = JSON.parse(response);
+            const data = response;
 
-            data.forEach((contact, index) => {
-                const row = `<tr>
-                              <th scope="row">${index + 1}</th>
-                              <td>${contact.name}</td>
-                              <td>+${contact.phone}</td>
-                              <td>
-                                   <a href="/contacts/update/${contact.id}">
-                                        <button type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></button>
-                                   </a>
-                                   <a href="/contacts/delete/${contact.id}">
-                                        <button type="button" class="btn btn-danger"><i class="fas fa-times"></i></button>
-                                   </a>
-                              </td>
-                           </tr>`;
-                $("#contacts-table").append(row);
-            }); 
+            data
+                .forEach((contact, index) => {
+                    const row = `<tr>
+                                  <th scope="row">${index + 1}</th>
+                                  <td>${contact.name}</td>
+                                  <td>+${contact.phone}</td>
+                                  <td>
+                                       <a href="/contacts/update/${contact.id}">
+                                            <button type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i></button>
+                                       </a>
+                                       <a href="/contacts/delete/${contact.id}">
+                                            <button type="button" class="btn btn-danger"><i class="fas fa-times"></i></button>
+                                       </a>
+                                  </td>
+                               </tr>`;
+                    $("#contacts-table").append(row);
+                }); 
         }
 
         function displayError(error) {
