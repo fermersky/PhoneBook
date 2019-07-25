@@ -59,7 +59,7 @@
             data: JSON.stringify(userBody),
 
             success: function (data) {
-                sessionStorage.setItem("userId", data);
+                localStorage.setItem("userId", data);
 
                 // redirect to main page
                 window.location.href = "/contacts/list";

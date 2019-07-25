@@ -44,7 +44,7 @@
                 'Content-Type': 'application/json'
             },
             type: 'GET',
-            url: `http://localhost:5002/api/contacts?userId=${sessionStorage.getItem("userId")}`,
+            url: `http://localhost:5002/api/contacts?userId=${localStorage.getItem("userId")}`,
 
             success: function (response) {
                 displayContacts(response);

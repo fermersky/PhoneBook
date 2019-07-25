@@ -62,7 +62,7 @@
                 const contactBody = {
                     "name": contactForm.inputName.value,
                     "phone": contactForm.inputPhone.value,
-                    "userId": sessionStorage.getItem("userId"),
+                    "userId": localStorage.getItem("userId"),
                 }
 
                 // send put request to the api
